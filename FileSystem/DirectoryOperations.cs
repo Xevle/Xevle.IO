@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Xevle.IO
 {
+	/// <summary>
+	/// Class for directory operations.
+	/// </summary>
 	public static class DirectoryOperations
 	{
 		#region Static variables
@@ -29,7 +32,7 @@ namespace Xevle.IO
 		/// <returns>The directories.</returns>
 		/// <param name="path">Path.</param>
 		/// <param name="filter">Filter.</param>
-		public static List<string> GetDirectories(string path, string filter="*")
+		public static List<string> GetDirectories(string path, string filter = "*")
 		{
 			try
 			{
@@ -51,7 +54,7 @@ namespace Xevle.IO
 		/// <returns><c>true</c>, if directory was created, <c>false</c> otherwise.</returns>
 		/// <param name="path">Path.</param>
 		/// <param name="throwException">If set to <c>true</c> throw exception.</param>
-		public static bool CreateDirectory(string path, bool throwException=false)
+		public static bool CreateDirectory(string path, bool throwException = false)
 		{
 			bool ret = true;
 
@@ -122,7 +125,7 @@ namespace Xevle.IO
 		/// <param name="path">Path.</param>
 		/// <param name="recursive">If set to <c>true</c> recursive.</param>
 		/// <param name="throwException">If set to <c>true</c> throw exception.</param>
-		public static bool RemoveDirectory(string path, bool recursive=true, bool throwException=false)
+		public static bool RemoveDirectory(string path, bool recursive = true, bool throwException = false)
 		{
 			try
 			{ 
@@ -137,7 +140,17 @@ namespace Xevle.IO
 			return true;
 		}
 
-		public static bool CopyDirectory(string source, string destination, bool recursiv=true, List<string> excludedFolders=null, List<string> excludedFiles=null, bool ignoreExistingFiles=false)
+		/// <summary>
+		/// Copies the directory.
+		/// </summary>
+		/// <returns><c>true</c>, if directory was copyed, <c>false</c> otherwise.</returns>
+		/// <param name="source">Source.</param>
+		/// <param name="destination">Destination.</param>
+		/// <param name="recursiv">If set to <c>true</c> recursiv.</param>
+		/// <param name="excludedFolders">Excluded folders.</param>
+		/// <param name="excludedFiles">Excluded files.</param>
+		/// <param name="ignoreExistingFiles">If set to <c>true</c> ignore existing files.</param>
+		public static bool CopyDirectory(string source, string destination, bool recursiv = true, List<string> excludedFolders = null, List<string> excludedFiles = null, bool ignoreExistingFiles = false)
 		{
 			DirectoryInfo sourceDirectoryInfo = new DirectoryInfo(source);
 
@@ -199,6 +212,7 @@ namespace Xevle.IO
 
 			return result;
 		}
+
 		/// <summary>
 		/// Moves the directory.
 		/// </summary>
@@ -221,7 +235,7 @@ namespace Xevle.IO
 		{
 			return Environment.CurrentDirectory.TrimEnd(pathDelimiter) + pathDelimiter;
 		}
-			
+
 		/// <summary>
 		/// Sets the current work directory.
 		/// </summary>

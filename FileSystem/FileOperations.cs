@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Xevle.IO
 {
+	/// <summary>
+	/// Class for file operations.
+	/// </summary>
 	public static class FileOperations
 	{
 		#region Read only operations

@@ -20,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -28,6 +29,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -37,9 +39,14 @@
     <Compile Include="FileSystem\Paths.cs" />
     <Compile Include="FileSystem\FileOperations.cs" />
     <Compile Include="FileSystem\DirectoryOperations.cs" />
+    <Compile Include="Streams\BitStreamBitArrangement.cs" />
+    <Compile Include="Streams\BufferedBinaryReader.cs" />
+    <Compile Include="Streams\IBitStreamReader.cs" />
+    <Compile Include="Streams\NonClosingStream.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="FileSystem\" />
+    <Folder Include="Streams\" />
   </ItemGroup>
 </Project>

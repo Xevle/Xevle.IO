@@ -3,6 +3,9 @@ using System.IO;
 
 namespace Xevle.IO
 {
+	/// <summary>
+	/// Class for path operations
+	/// </summary>
 	public static class Paths
 	{
 		#region Static variables
@@ -209,7 +212,7 @@ namespace Xevle.IO
 		/// <param name="filename">Filename.</param>
 		/// <param name="stringMethod">If set to <c>true</c> string method.</param>
 		/// <param name="pathDelimiterAtEnd">If set to <c>true</c> path delimiter at end.</param>
-		public static string GetPath(string filename, bool stringMethod=false, bool pathDelimiterAtEnd=true)
+		public static string GetPath(string filename, bool stringMethod = false, bool pathDelimiterAtEnd = true)
 		{
 			if (stringMethod)
 			{
@@ -260,7 +263,7 @@ namespace Xevle.IO
 		/// <param name="completePath">Complete path.</param>
 		/// <param name="basePath">Base path.</param>
 		/// <param name="caseSensitive">If set to <c>true</c> case sensitive.</param>
-		public static string GetRelativePath(string completePath, string basePath, bool caseSensitive=false)
+		public static string GetRelativePath(string completePath, string basePath, bool caseSensitive = false)
 		{
 			if (!IsAbsolute(completePath) && !IsNetworkPath(completePath)) throw new ArgumentException("completePath is not absolute.");
 
@@ -324,7 +327,7 @@ namespace Xevle.IO
 		/// <returns>The filename.</returns>
 		/// <param name="filename">Filename.</param>
 		/// <param name="stringMethod">If set to <c>true</c> string method.</param>
-		public static string GetFilename(string filename, bool stringMethod=false)
+		public static string GetFilename(string filename, bool stringMethod = false)
 		{
 			if (stringMethod)
 			{
