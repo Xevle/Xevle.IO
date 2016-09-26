@@ -3,13 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FF1643AA-E194-4145-8248-028ED9503EB4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Xevle.IO</RootNamespace>
     <AssemblyName>Xevle.IO</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +43,12 @@
     <Compile Include="Streams\BufferedBinaryReader.cs" />
     <Compile Include="Streams\IBitStreamReader.cs" />
     <Compile Include="Streams\NonClosingStream.cs" />
+    <Compile Include="Helper\ProcessHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="FileSystem\" />
     <Folder Include="Streams\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
 </Project>
