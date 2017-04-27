@@ -12,7 +12,13 @@ namespace Xevle.IO
 		/// <summary>
 		/// The path delimiter of current system.
 		/// </summary>
-		static char pathDelimiter = System.IO.Path.DirectorySeparatorChar;
+		public static char PathDelimiter
+		{
+			get
+			{
+				return System.IO.Path.DirectorySeparatorChar;
+			}
+		}
 
 		static char[] illegalChars = new char[] { '<', '>', ':', '"', '|', '\0', '\x1', '\x2', '\x3', '\x4', '\x5', '\x6', '\x7', '\x8', '\x9', '\xA', '\xB', '\xC', '\xD', '\xE', '\xF', '\x10', '\x11', '\x12', '\x13', '\x14', '\x15', '\x16', '\x17', '\x18', '\x19', '\x1A', '\x1B', '\x1C', '\x1D', '\x1E', '\x1F', '\xfffd' };
 		#endregion
@@ -27,7 +33,7 @@ namespace Xevle.IO
 			get
 			{
 				FileInfo fi = new FileInfo(System.Reflection.Assembly.GetEntryAssembly().Location);
-				return fi.DirectoryName + pathDelimiter;
+				return fi.DirectoryName + PathDelimiter;
 			}
 		}
 
@@ -39,7 +45,7 @@ namespace Xevle.IO
 		{
 			get
 			{
-				return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).TrimEnd(pathDelimiter) + pathDelimiter;
+				return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).TrimEnd(PathDelimiter) + PathDelimiter;
 			}
 		}
 
@@ -64,7 +70,7 @@ namespace Xevle.IO
 		{
 			get
 			{
-				return Path.GetTempPath().TrimEnd(pathDelimiter) + pathDelimiter;
+				return Path.GetTempPath().TrimEnd(PathDelimiter) + PathDelimiter;
 			}
 		}
 		#endregion
@@ -149,10 +155,10 @@ namespace Xevle.IO
 		/// <param name="path">Path.</param>
 		public static bool IsNetworkPath(string path)
 		{
-			if (path.Length < 3) return false;	// kein "c:\" oder �hnliches
+			if (path.Length < 3) return false;	// no c:\ et cetera
 			if (!Char.IsLetter(path[0]))
 			{	//Test auf UNC Pfad
-				if (path[0] != '\\') return false;	// z.B. "\\FOO\myMusic"
+				if (path[0] != '\\') return false;	// e.g. "\\MACHINE\folder"
 				if (path[1] != '\\') return false;
 				return true;
 			}
@@ -166,7 +172,7 @@ namespace Xevle.IO
 		/// <param name="path">Path.</param>
 		public static bool IsRoot(string path)
 		{
-			path = path.TrimEnd(pathDelimiter).ToLower();
+			path = path.TrimEnd(PathDelimiter).ToLower();
 
 			switch (Environment.OSVersion.Platform)
 			{
@@ -216,7 +222,7 @@ namespace Xevle.IO
 		{
 			if (stringMethod)
 			{
-				if (filename[filename.Length - 1] == pathDelimiter) return filename;
+				if (filename[filename.Length - 1] == PathDelimiter) return filename;
 
 				int idx = -1;
 
@@ -232,7 +238,7 @@ namespace Xevle.IO
 				if (idx == -1) return "";
 				string path = filename.Substring(0, idx);
 
-				if (pathDelimiterAtEnd) return path + pathDelimiter;
+				if (pathDelimiterAtEnd) return path + PathDelimiter;
 				else return path;
 			}
 			else
@@ -240,7 +246,7 @@ namespace Xevle.IO
 				FileInfo ret = new FileInfo(filename);
 				if (ret.DirectoryName.Length == 3) return ret.DirectoryName;
 
-				if (pathDelimiterAtEnd) return ret.DirectoryName + pathDelimiter;
+				if (pathDelimiterAtEnd) return ret.DirectoryName + PathDelimiter;
 				else return ret.DirectoryName;
 			}
 		}
@@ -279,7 +285,7 @@ namespace Xevle.IO
 			basePath = GetAbsolutePath(basePath);
 
 			// Canonize path
-			if (basePath[basePath.Length - 1] != pathDelimiter) basePath += pathDelimiter;
+			if (basePath[basePath.Length - 1] != PathDelimiter) basePath += PathDelimiter;
 
 			string relativePath = "";
 
@@ -289,9 +295,9 @@ namespace Xevle.IO
 			{
 				basePath = GetPath(basePath.Substring(0, basePath.Length - 1));
 
-				if (basePath[basePath.Length - 1] != pathDelimiter) basePath += pathDelimiter;
+				if (basePath[basePath.Length - 1] != PathDelimiter) basePath += PathDelimiter;
 
-				relativePath += ".." + pathDelimiter;
+				relativePath += ".." + PathDelimiter;
 				baseStart = completePath.IndexOf(basePath);
 			}
 
@@ -308,7 +314,7 @@ namespace Xevle.IO
 		/// <param name="path">Path.</param>
 		public static string GetPathWithPathDelimiter(string path)
 		{
-			return path.TrimEnd(pathDelimiter) + pathDelimiter;
+			return path.TrimEnd(PathDelimiter) + PathDelimiter;
 		}
 
 		/// <summary>
@@ -331,7 +337,7 @@ namespace Xevle.IO
 		{
 			if (stringMethod)
 			{
-				if (filename[filename.Length - 1] == pathDelimiter) return filename;
+				if (filename[filename.Length - 1] == PathDelimiter) return filename;
 
 				int idx = -1;
 

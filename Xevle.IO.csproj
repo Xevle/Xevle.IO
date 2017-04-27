@@ -44,11 +44,19 @@
     <Compile Include="Streams\IBitStreamReader.cs" />
     <Compile Include="Streams\NonClosingStream.cs" />
     <Compile Include="Helper\ProcessHelper.cs" />
+    <Compile Include="Data\PersistenceKeyValueStorage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="FileSystem\" />
     <Folder Include="Streams\" />
     <Folder Include="Helper\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xevle.Core\Xevle.Core.csproj">
+      <Project>{4D90F3D7-F459-4272-A2FB-7A6B6987EA2D}</Project>
+      <Name>Xevle.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
